@@ -1,0 +1,53 @@
+// motor pins
+int motorR1 = 2;
+int motorR2 = 3;
+int motorL1 = 4;
+int motorL2 = 5;
+int pmwR = 6;
+int pmwL = 9;
+// sonar variable
+long duration1;  //zijkant
+int distance1; 
+long duration2; //voorkant
+int distance2;
+//sonar pins
+const int trigPinF = 7; //voorkant
+const int echoPinF = 8;
+
+// Define color sensor pins
+#include <Servo.h>
+Servo ServoR; //rood
+Servo ServoG; //groen
+Servo ServoB; //blauw
+Servo ServoY; //geel
+
+#define S0 10
+#define S1 11
+#define S2 12
+#define S3 13
+#define sensorOut A4
+
+// Variables for Color Pulse Width Measurements
+int redPW = 0;
+int greenPW = 0;
+int bluePW = 0;
+
+void setup() {
+{ // servo pins
+  ServoR.attach(A0); //rood
+  ServoG.attach(A1); //groen
+  ServoB.attach(A2); //blauw
+  ServoY.attach(A3); //geel
+	// Set S0 - S3 as outputs
+	pinMode(S0, OUTPUT);
+	pinMode(S1, OUTPUT);
+	pinMode(S2, OUTPUT);
+	pinMode(S3, OUTPUT);
+}
+{	// Set Pulse Width scaling to 20%
+	digitalWrite(S0,HIGH);
+	digitalWrite(S1,LOW);
+}
+{ // motor
+  pinMode(motorR1, OUTPUT);
+  pinMode(motorR2,
